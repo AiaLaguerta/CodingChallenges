@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>One Time Password </title>
+        <style>
+        	body {background: lightblue; 
+            	text-align: center;
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            a {font-size: 0.5em; color: maroon}
+        </style>
+
+	</head>
+	<body onload="displayOtp()">
+	<h1> Final Verification Step </h1>
+	<h2> Current OTP: <span id="otp"> _ _ _ _ _ _ </span> <a onclick="otpNew()" href=""> New OTP </a></h2>
+    <button onclick="confirmOtp(prompt('Enter the OTP as shown above'))"> Enter the OTP as shown above </button>
+	
+    
+	<script>
+        var otp = Math.random().toString().substr(2,6); //start tayo sa 2 para our starting numbers aren't 0
+
+        function displayOtp(){
+            document.getElementById("otp").innerHTML = otp; 
+        }
+
+        function confirmOtp(userinput){
+            if (userinput == otp){
+                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            }
+            else{
+                confirm("You entered the incorrect OTP bro. Try again sa iba.Dapat ganyan, if your previous relationship didn't work try again sa iba at wag bumalik sa hindi nman tama para sayo :D");
+                otpNew();
+            }
+        }
+
+        function generateOtp(){
+            var otp = Math.random().toString().substr(2,6); 
+        }
+        console.log(otp);
+
+        function otpNew(){
+            otp = generateOtp();
+            displayOtp();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Coding Challenge 3
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: lightseagreen;
+            }
+
+            div {
+                background-color: white;
+                width: 300px;
+                height: 30px;
+                text-align: center;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 1px solid black;
+                padding: 10px;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Name List </h1>
+
+       <table id="table"> 
+        <tr>
+            <th> First Name</th>
+            <th> Middle Name</th>
+            <th> Last Name</th>
+        </tr>
+       </table>
+       <button onclick="addName(prompt(name))">Add Name</button>
+        <script>
+            function addName(name){
+                let x = name.split(','); //splitting the names
+                var table = document.getElementById("table"); //getting the element of the table
+                var tableRow = table.insertRow(1); //inserting tables in the row
+
+                //Making cells for the new row
+                var firstNameCell = tableRow.insertCell(0); 
+                var middleNameCell = tableRow.insertCell(1);
+                var lastNameCell = tableRow.insertCell(2);
+
+                //Inputing the data
+                firstNameCell.innerHTML = x[0];
+                middleNameCell.innerHTML = x[1];
+                lastNameCell.innerHTML = x[2];
+            }
+        </script>
+    </body>
+</html>
